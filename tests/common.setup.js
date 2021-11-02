@@ -1,3 +1,4 @@
+import semver from 'semver';
 import { Controller } from './websocket-client';
 import TrezorConnect from '../src/js/index';
 import * as UI from '../src/js/constants/ui';
@@ -48,9 +49,11 @@ const setup = async (controller, options) => {
             needs_backup: false,
             options,
         });
-        // todo: temporary from 2.3.2 until sync fixtures with trezor-firmware
-        await controller.send({ type: 'emulator-allow-unsafe-paths' });
-
+        // lower firmware does not have this interface
+        if (firmware === '2-master' || semver.gte(firmware, '2.3.2')) {
+            // todo: temporary from 2.3.2 until sync fixtures with trezor-firmware
+            await controller.send({ type: 'emulator-allow-unsafe-paths' });
+        }
         // after all is done, start bridge again
         await controller.send({ type: 'bridge-start' });
         // Wait to prevent Transport is missing error from TrezorConnect

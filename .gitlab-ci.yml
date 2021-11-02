@@ -65,7 +65,7 @@ deploy test:
     - '[ -z "${DEPLOY_BASE_DIR}" ] && echo "Deploy base dir cannot be empty" && exit 255'
     - env
     - mkdir -p "${DEPLOY_BASE_DIR}/${CI_BUILD_REF_NAME}"
-    - echo "Copy dev build to web server ${DEPLOY_BASE_DIR}/${CI_BUILD_REF_NAME}..."
+    - echo "Copy dev build to web server ${DEPLOY_BASE_DIR}/${CI_BUILD_REF_NpAME}..."
     - rsync --delete -va build/ "${DEPLOY_BASE_DIR}/${CI_BUILD_REF_NAME}/"
   only:
     - branches
@@ -222,3 +222,71 @@ test binance:
   extends: .test
   variables:
     TESTS_INCLUDED_METHODS: "binanceSignTransaction"
+
+# testing backwards compatibility for oldest supported firmware 
+# 2.2.0 released in January 2020
+test management:
+  extends: .test
+  variables:
+    TESTS_INCLUDED_METHODS: "applySettings,applyFlags,getFeatures"
+    TESTS_FIRMWARE: "2.2.0"
+
+test btc sign:
+  extends: .test
+  variables:
+    TESTS_INCLUDED_METHODS: "signTransaction"
+    TESTS_FIRMWARE: "2.2.0"
+
+test btc others:
+  extends: .test
+  variables:
+    TESTS_INCLUDED_METHODS: "getAccountInfo,getAddress,getPublicKey,signMessage,verifyMessage"
+    TESTS_FIRMWARE: "2.2.0"
+
+test stellar:
+  extends: .test
+  variables:
+    TESTS_INCLUDED_METHODS: "stellarGetAddress,stellarSignTransaction"
+    TESTS_FIRMWARE: "2.2.0"
+
+test cardano:
+  extends: .test
+  variables:
+    TESTS_INCLUDED_METHODS: "cardanoGetAddress,cardanoGetNativeScriptHash,cardanoGetPublicKey,cardanoSignTransaction"
+    TESTS_FIRMWARE: "2.2.0"
+
+test eos:
+  extends: .test
+  variables:
+    TESTS_INCLUDED_METHODS: "eosGetPublicKey,eosSignTransaction"
+    TESTS_FIRMWARE: "2.2.0"
+
+test eth:
+  extends: .test
+  variables:
+    TESTS_INCLUDED_METHODS: "ethereumGetAddress,ethereumGetPublicKey,ethereumSignMessage,ethereumSignTransaction,ethereumVerifyMessage"
+    TESTS_FIRMWARE: "2.2.0"
+
+test nem:
+  extends: .test
+  variables:
+    TESTS_INCLUDED_METHODS: "nemGetAddress,nemSignTransaction"
+    TESTS_FIRMWARE: "2.2.0"
+
+test ripple:
+  extends: .test
+  variables:
+    TESTS_INCLUDED_METHODS: "rippleGetAddress,rippleSignTransaction"
+    TESTS_FIRMWARE: "2.2.0"
+
+test tezos:
+  extends: .test
+  variables:
+    TESTS_INCLUDED_METHODS: "tezosGetAddress,tezosGetPublicKey"
+    TESTS_FIRMWARE: "2.2.0"
+
+test binance:
+  extends: .test
+  variables:
+    TESTS_INCLUDED_METHODS: "binanceSignTransaction"
+    TESTS_FIRMWARE: "2.2.0"
