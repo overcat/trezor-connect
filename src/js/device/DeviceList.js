@@ -121,7 +121,7 @@ export default class DeviceList extends EventEmitter {
 
     async reconfigure(messages: JSON | number[], custom?: boolean) {
         if (Array.isArray(messages)) {
-            messages = DataManager.getProtobufMessages(messages);
+            messages = DataManager.getProtobufMessages();
         }
         if (this.currentMessages === messages) return;
         try {
