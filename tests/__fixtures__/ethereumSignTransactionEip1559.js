@@ -3,6 +3,7 @@ import commonFixtures from '../../submodules/trezor-common/tests/fixtures/ethere
 export default {
     method: 'ethereumSignTransaction',
     setup: {
+        firmware: [['2.4.2', '2-master']],
         mnemonic: commonFixtures.setup.mnemonic,
     },
     tests: commonFixtures.tests.flatMap(({ name, parameters, result }) => {

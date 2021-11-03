@@ -313,6 +313,7 @@ const VALIDITY_INTERVAL_START = '47';
 export default {
     method: 'cardanoSignTransaction',
     setup: {
+        firmware: [['2.3.2', '2-master']],
         mnemonic: 'mnemonic_all',
     },
     tests: [

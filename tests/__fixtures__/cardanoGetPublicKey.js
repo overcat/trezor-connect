@@ -1,6 +1,7 @@
 export default {
     method: 'cardanoGetPublicKey',
     setup: {
+        firmware: [['2.3.1', '2-master']],
         mnemonic: 'mnemonic_all',
     },
     tests: [
