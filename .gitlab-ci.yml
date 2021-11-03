@@ -65,7 +65,7 @@ deploy test:
     - '[ -z "${DEPLOY_BASE_DIR}" ] && echo "Deploy base dir cannot be empty" && exit 255'
     - env
     - mkdir -p "${DEPLOY_BASE_DIR}/${CI_BUILD_REF_NAME}"
-    - echo "Copy dev build to web server ${DEPLOY_BASE_DIR}/${CI_BUILD_REF_NpAME}..."
+    - echo "Copy dev build to web server ${DEPLOY_BASE_DIR}/${CI_BUILD_REF_NAME}..."
     - rsync --delete -va build/ "${DEPLOY_BASE_DIR}/${CI_BUILD_REF_NAME}/"
   only:
     - branches
@@ -225,67 +225,67 @@ test binance:
 
 # testing backwards compatibility for oldest supported firmware 
 # 2.2.0 released in January 2020
-test management:
+test legacy management:
   extends: .test
   variables:
     TESTS_INCLUDED_METHODS: "applySettings,applyFlags,getFeatures"
     TESTS_FIRMWARE: "2.2.0"
 
-test btc sign:
+test legacy btc sign:
   extends: .test
   variables:
     TESTS_INCLUDED_METHODS: "signTransaction"
     TESTS_FIRMWARE: "2.2.0"
 
-test btc others:
+test legacy btc others:
   extends: .test
   variables:
     TESTS_INCLUDED_METHODS: "getAccountInfo,getAddress,getPublicKey,signMessage,verifyMessage"
     TESTS_FIRMWARE: "2.2.0"
 
-test stellar:
+test legacy stellar:
   extends: .test
   variables:
     TESTS_INCLUDED_METHODS: "stellarGetAddress,stellarSignTransaction"
     TESTS_FIRMWARE: "2.2.0"
 
-test cardano:
+test legacy cardano:
   extends: .test
   variables:
     TESTS_INCLUDED_METHODS: "cardanoGetAddress,cardanoGetNativeScriptHash,cardanoGetPublicKey,cardanoSignTransaction"
     TESTS_FIRMWARE: "2.2.0"
 
-test eos:
+test legacy eos:
   extends: .test
   variables:
     TESTS_INCLUDED_METHODS: "eosGetPublicKey,eosSignTransaction"
     TESTS_FIRMWARE: "2.2.0"
 
-test eth:
+test legacy eth:
   extends: .test
   variables:
     TESTS_INCLUDED_METHODS: "ethereumGetAddress,ethereumGetPublicKey,ethereumSignMessage,ethereumSignTransaction,ethereumVerifyMessage"
     TESTS_FIRMWARE: "2.2.0"
 
-test nem:
+test legacy nem:
   extends: .test
   variables:
     TESTS_INCLUDED_METHODS: "nemGetAddress,nemSignTransaction"
     TESTS_FIRMWARE: "2.2.0"
 
-test ripple:
+test legacy ripple:
   extends: .test
   variables:
     TESTS_INCLUDED_METHODS: "rippleGetAddress,rippleSignTransaction"
     TESTS_FIRMWARE: "2.2.0"
 
-test tezos:
+test legacy tezos:
   extends: .test
   variables:
     TESTS_INCLUDED_METHODS: "tezosGetAddress,tezosGetPublicKey"
     TESTS_FIRMWARE: "2.2.0"
 
-test binance:
+test legacy binance:
   extends: .test
   variables:
     TESTS_INCLUDED_METHODS: "binanceSignTransaction"
