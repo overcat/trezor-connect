@@ -1,11 +1,35 @@
 // @flow
 // This file is auto generated from data/messages/message.json
+export const Enum_BinanceOrderType = Object.freeze({
+    OT_UNKNOWN: 0,
+    MARKET: 1,
+    LIMIT: 2,
+    OT_RESERVED: 3,
+});
+export type BinanceOrderType = $Values<typeof Enum_BinanceOrderType>;
+
+export const Enum_BinanceOrderSide = Object.freeze({
+    SIDE_UNKNOWN: 0,
+    BUY: 1,
+    SELL: 2,
+});
+export type BinanceOrderSide = $Values<typeof Enum_BinanceOrderSide>;
+
+export const Enum_BinanceTimeInForce = Object.freeze({
+    TIF_UNKNOWN: 0,
+    GTE: 1,
+    TIF_RESERVED: 2,
+    IOC: 3,
+});
+export type BinanceTimeInForce = $Values<typeof Enum_BinanceTimeInForce>;
+
 export const Enum_InputScriptType = Object.freeze({
     SPENDADDRESS: 0,
     SPENDMULTISIG: 1,
     EXTERNAL: 2,
     SPENDWITNESS: 3,
     SPENDP2SHWITNESS: 4,
+    SPENDTAPROOT: 5,
 });
 export type InputScriptType = $Keys<typeof Enum_InputScriptType>;
 
@@ -16,6 +40,7 @@ export const Enum_OutputScriptType = Object.freeze({
     PAYTOOPRETURN: 3,
     PAYTOWITNESS: 4,
     PAYTOP2SHWITNESS: 5,
+    PAYTOTAPROOT: 6,
 });
 export type OutputScriptType = $Keys<typeof Enum_OutputScriptType>;
 
@@ -32,6 +57,17 @@ export const Enum_AmountUnit = Object.freeze({
     SATOSHI: 3,
 });
 export type AmountUnit = $Values<typeof Enum_AmountUnit>;
+
+export const Enum_RequestType = Object.freeze({
+    TXINPUT: 0,
+    TXOUTPUT: 1,
+    TXMETA: 2,
+    TXFINISHED: 3,
+    TXEXTRADATA: 4,
+    TXORIGINPUT: 5,
+    TXORIGOUTPUT: 6,
+});
+export type RequestType = $Keys<typeof Enum_RequestType>;
 
 export const Enum_CardanoAddressType = Object.freeze({
     BASE: 0,
@@ -103,26 +139,57 @@ export const Enum_CardanoTxWitnessType = Object.freeze({
 });
 export type CardanoTxWitnessType = $Values<typeof Enum_CardanoTxWitnessType>;
 
-export const Enum_BackupType = Object.freeze({
-    Bip39: 0,
-    Slip39_Basic: 1,
-    Slip39_Advanced: 2,
+export const Enum_FailureType = Object.freeze({
+    Failure_UnexpectedMessage: 1,
+    Failure_ButtonExpected: 2,
+    Failure_DataError: 3,
+    Failure_ActionCancelled: 4,
+    Failure_PinExpected: 5,
+    Failure_PinCancelled: 6,
+    Failure_PinInvalid: 7,
+    Failure_InvalidSignature: 8,
+    Failure_ProcessError: 9,
+    Failure_NotEnoughFunds: 10,
+    Failure_NotInitialized: 11,
+    Failure_PinMismatch: 12,
+    Failure_WipeCodeMismatch: 13,
+    Failure_InvalidSession: 14,
+    Failure_FirmwareError: 99,
 });
-export type BackupType = $Keys<typeof Enum_BackupType>;
+export type FailureType = $Values<typeof Enum_FailureType>;
 
-export const Enum_SafetyCheckLevel = Object.freeze({
-    Strict: 0,
-    PromptAlways: 1,
-    PromptTemporarily: 2,
+export const Enum_ButtonRequestType = Object.freeze({
+    ButtonRequest_Other: 1,
+    ButtonRequest_FeeOverThreshold: 2,
+    ButtonRequest_ConfirmOutput: 3,
+    ButtonRequest_ResetDevice: 4,
+    ButtonRequest_ConfirmWord: 5,
+    ButtonRequest_WipeDevice: 6,
+    ButtonRequest_ProtectCall: 7,
+    ButtonRequest_SignTx: 8,
+    ButtonRequest_FirmwareCheck: 9,
+    ButtonRequest_Address: 10,
+    ButtonRequest_PublicKey: 11,
+    ButtonRequest_MnemonicWordCount: 12,
+    ButtonRequest_MnemonicInput: 13,
+    _Deprecated_ButtonRequest_PassphraseType: 14,
+    ButtonRequest_UnknownDerivationPath: 15,
+    ButtonRequest_RecoveryHomepage: 16,
+    ButtonRequest_Success: 17,
+    ButtonRequest_Warning: 18,
+    ButtonRequest_PassphraseEntry: 19,
+    ButtonRequest_PinEntry: 20,
 });
-export type SafetyCheckLevel = $Keys<typeof Enum_SafetyCheckLevel>;
+export type ButtonRequestType = $Keys<typeof Enum_ButtonRequestType>;
 
-export const Enum_StellarAssetType = Object.freeze({
-    NATIVE: 0,
-    ALPHANUM4: 1,
-    ALPHANUM12: 2,
+export const Enum_PinMatrixRequestType = Object.freeze({
+    PinMatrixRequestType_Current: 1,
+    PinMatrixRequestType_NewFirst: 2,
+    PinMatrixRequestType_NewSecond: 3,
+    PinMatrixRequestType_WipeCodeFirst: 4,
+    PinMatrixRequestType_WipeCodeSecond: 5,
 });
-export type StellarAssetType = $Values<typeof Enum_StellarAssetType>;
+export type PinMatrixRequestType = $Keys<typeof Enum_PinMatrixRequestType>;
 
 // BinanceGetAddress
 export type BinanceGetAddress = {
@@ -175,29 +242,6 @@ export type BinanceTransferMsg = {
     inputs: BinanceInputOutput[],
     outputs: BinanceInputOutput[],
 };
-
-export const Enum_BinanceOrderType = Object.freeze({
-    OT_UNKNOWN: 0,
-    MARKET: 1,
-    LIMIT: 2,
-    OT_RESERVED: 3,
-});
-export type BinanceOrderType = $Values<typeof Enum_BinanceOrderType>;
-
-export const Enum_BinanceOrderSide = Object.freeze({
-    SIDE_UNKNOWN: 0,
-    BUY: 1,
-    SELL: 2,
-});
-export type BinanceOrderSide = $Values<typeof Enum_BinanceOrderSide>;
-
-export const Enum_BinanceTimeInForce = Object.freeze({
-    TIF_UNKNOWN: 0,
-    GTE: 1,
-    TIF_RESERVED: 2,
-    IOC: 3,
-});
-export type BinanceTimeInForce = $Values<typeof Enum_BinanceTimeInForce>;
 
 // BinanceOrderMsg
 export type BinanceOrderMsg = {
@@ -331,17 +375,6 @@ export type SignTx = {
     decred_staking_ticket?: boolean,
 };
 
-export const Enum_RequestType = Object.freeze({
-    TXINPUT: 0,
-    TXOUTPUT: 1,
-    TXMETA: 2,
-    TXFINISHED: 3,
-    TXEXTRADATA: 4,
-    TXORIGINPUT: 5,
-    TXORIGOUTPUT: 6,
-});
-export type RequestType = $Keys<typeof Enum_RequestType>;
-
 export type TxRequestDetailsType = {
     request_index: number,
     tx_hash?: string,
@@ -378,6 +411,7 @@ export type TxInputType = {
     orig_hash?: string,
     orig_index?: number,
     decred_staking_spend?: DecredStakingSpendType,
+    script_pubkey?: string,
 };
 
 export type TxOutputBinType = {
@@ -440,6 +474,7 @@ export type TxInput = {
     orig_hash?: string,
     orig_index?: number,
     decred_staking_spend?: DecredStakingSpendType,
+    script_pubkey?: string,
 };
 
 // TxOutput
@@ -915,54 +950,11 @@ export type Success = {
     message: string,
 };
 
-export const Enum_FailureType = Object.freeze({
-    Failure_UnexpectedMessage: 1,
-    Failure_ButtonExpected: 2,
-    Failure_DataError: 3,
-    Failure_ActionCancelled: 4,
-    Failure_PinExpected: 5,
-    Failure_PinCancelled: 6,
-    Failure_PinInvalid: 7,
-    Failure_InvalidSignature: 8,
-    Failure_ProcessError: 9,
-    Failure_NotEnoughFunds: 10,
-    Failure_NotInitialized: 11,
-    Failure_PinMismatch: 12,
-    Failure_WipeCodeMismatch: 13,
-    Failure_InvalidSession: 14,
-    Failure_FirmwareError: 99,
-});
-export type FailureType = $Values<typeof Enum_FailureType>;
-
 // Failure
 export type Failure = {
     code?: FailureType,
     message?: string,
 };
-
-export const Enum_ButtonRequestType = Object.freeze({
-    ButtonRequest_Other: 1,
-    ButtonRequest_FeeOverThreshold: 2,
-    ButtonRequest_ConfirmOutput: 3,
-    ButtonRequest_ResetDevice: 4,
-    ButtonRequest_ConfirmWord: 5,
-    ButtonRequest_WipeDevice: 6,
-    ButtonRequest_ProtectCall: 7,
-    ButtonRequest_SignTx: 8,
-    ButtonRequest_FirmwareCheck: 9,
-    ButtonRequest_Address: 10,
-    ButtonRequest_PublicKey: 11,
-    ButtonRequest_MnemonicWordCount: 12,
-    ButtonRequest_MnemonicInput: 13,
-    _Deprecated_ButtonRequest_PassphraseType: 14,
-    ButtonRequest_UnknownDerivationPath: 15,
-    ButtonRequest_RecoveryHomepage: 16,
-    ButtonRequest_Success: 17,
-    ButtonRequest_Warning: 18,
-    ButtonRequest_PassphraseEntry: 19,
-    ButtonRequest_PinEntry: 20,
-});
-export type ButtonRequestType = $Keys<typeof Enum_ButtonRequestType>;
 
 // ButtonRequest
 export type ButtonRequest = {
@@ -972,15 +964,6 @@ export type ButtonRequest = {
 
 // ButtonAck
 export type ButtonAck = {};
-
-export const Enum_PinMatrixRequestType = Object.freeze({
-    PinMatrixRequestType_Current: 1,
-    PinMatrixRequestType_NewFirst: 2,
-    PinMatrixRequestType_NewSecond: 3,
-    PinMatrixRequestType_WipeCodeFirst: 4,
-    PinMatrixRequestType_WipeCodeSecond: 5,
-});
-export type PinMatrixRequestType = $Keys<typeof Enum_PinMatrixRequestType>;
 
 // PinMatrixRequest
 export type PinMatrixRequest = {
@@ -1095,11 +1078,6 @@ export type DebugLinkReseedRandom = {
     value?: number,
 };
 
-// DebugLinkRecordScreen
-export type DebugLinkRecordScreen = {
-    target_directory?: string,
-};
-
 // DebugLinkGetState
 export type DebugLinkGetState = {
     wait_word_list?: boolean,
@@ -1107,42 +1085,13 @@ export type DebugLinkGetState = {
     wait_layout?: boolean,
 };
 
-// DebugLinkState
-export type DebugLinkState = {
-    layout?: string,
-    pin?: string,
-    matrix?: string,
-    mnemonic_secret?: string,
-    node?: HDNodeType,
-    passphrase_protection?: boolean,
-    reset_word?: string,
-    reset_entropy?: string,
-    recovery_fake_word?: string,
-    recovery_word_pos?: number,
-    reset_word_pos?: number,
-    mnemonic_type?: BackupType,
-    layout_lines: string[],
-};
-
 // DebugLinkStop
 export type DebugLinkStop = {};
-
-// DebugLinkLog
-export type DebugLinkLog = {
-    level?: number,
-    bucket?: string,
-    text?: string,
-};
 
 // DebugLinkMemoryRead
 export type DebugLinkMemoryRead = {
     address?: number,
     length?: number,
-};
-
-// DebugLinkMemory
-export type DebugLinkMemory = {
-    memory?: string,
 };
 
 // DebugLinkMemoryWrite
@@ -1152,31 +1101,15 @@ export type DebugLinkMemoryWrite = {
     flash?: boolean,
 };
 
-// DebugLinkFlashErase
-export type DebugLinkFlashErase = {
-    sector?: number,
-};
-
 // DebugLinkEraseSdCard
 export type DebugLinkEraseSdCard = {
     format?: boolean,
-};
-
-// DebugLinkWatchLayout
-export type DebugLinkWatchLayout = {
-    watch?: boolean,
 };
 
 // EosGetPublicKey
 export type EosGetPublicKey = {
     address_n: number[],
     show_display?: boolean,
-};
-
-// EosPublicKey
-export type EosPublicKey = {
-    wif_public_key: string,
-    raw_public_key: string,
 };
 
 export type EosTxHeader = {
@@ -1188,34 +1121,14 @@ export type EosTxHeader = {
     delay_sec: number,
 };
 
-// EosSignTx
-export type EosSignTx = {
-    address_n: number[],
-    chain_id?: string,
-    header?: EosTxHeader,
-    num_actions?: number,
-};
-
 // EosTxActionRequest
 export type EosTxActionRequest = {
     data_size?: number,
 };
 
-export type EosAsset = {
-    amount?: string,
-    symbol?: string,
-};
-
 export type EosPermissionLevel = {
     actor?: string,
     permission?: string,
-};
-
-export type EosAuthorizationKey = {
-    type?: number,
-    key: string,
-    address_n?: number[],
-    weight: number,
 };
 
 export type EosAuthorizationAccount = {
@@ -1228,17 +1141,9 @@ export type EosAuthorizationWait = {
     weight?: number,
 };
 
-export type EosAuthorization = {
-    threshold?: number,
-    keys: EosAuthorizationKey[],
-    accounts: EosAuthorizationAccount[],
-    waits: EosAuthorizationWait[],
-};
-
-export type EosActionCommon = {
-    account?: string,
-    name?: string,
-    authorization: EosPermissionLevel[],
+export type EosAsset = {
+    amount?: string,
+    symbol?: string,
 };
 
 export type EosActionTransfer = {
@@ -1248,19 +1153,58 @@ export type EosActionTransfer = {
     memo?: string,
 };
 
+export type EosActionUndelegate = {
+    sender?: string,
+    receiver?: string,
+    net_quantity?: EosAsset,
+    cpu_quantity?: EosAsset,
+};
+
+export type EosActionSellRam = {
+    account?: string,
+    bytes?: number,
+};
+
+export type EosAuthorizationKey = {
+    type?: number,
+    key: string,
+    address_n?: number[],
+    weight: number,
+};
+
+export type EosAuthorization = {
+    threshold?: number,
+    keys: EosAuthorizationKey[],
+    accounts: EosAuthorizationAccount[],
+    waits: EosAuthorizationWait[],
+};
+
+export type EosActionLinkAuth = {
+    account?: string,
+    code?: string,
+    type?: string,
+    requirement?: string,
+};
+
+export type EosActionNewAccount = {
+    creator?: string,
+    name?: string,
+    owner?: EosAuthorization,
+    active?: EosAuthorization,
+};
+
+export type EosActionCommon = {
+    account?: string,
+    name?: string,
+    authorization: EosPermissionLevel[],
+};
+
 export type EosActionDelegate = {
     sender?: string,
     receiver?: string,
     net_quantity?: EosAsset,
     cpu_quantity?: EosAsset,
     transfer?: boolean,
-};
-
-export type EosActionUndelegate = {
-    sender?: string,
-    receiver?: string,
-    net_quantity?: EosAsset,
-    cpu_quantity?: EosAsset,
 };
 
 export type EosActionRefund = {
@@ -1276,11 +1220,6 @@ export type EosActionBuyRam = {
 export type EosActionBuyRamBytes = {
     payer?: string,
     receiver?: string,
-    bytes?: number,
-};
-
-export type EosActionSellRam = {
-    account?: string,
     bytes?: number,
 };
 
@@ -1302,24 +1241,10 @@ export type EosActionDeleteAuth = {
     permission?: string,
 };
 
-export type EosActionLinkAuth = {
-    account?: string,
-    code?: string,
-    type?: string,
-    requirement?: string,
-};
-
 export type EosActionUnlinkAuth = {
     account?: string,
     code?: string,
     type?: string,
-};
-
-export type EosActionNewAccount = {
-    creator?: string,
-    name?: string,
-    owner?: EosAuthorization,
-    active?: EosAuthorization,
 };
 
 export type EosActionUnknown = {
@@ -1346,21 +1271,590 @@ export type EosTxActionAck = {
     unknown?: EosActionUnknown,
 };
 
-// EosSignedTx
-export type EosSignedTx = {
-    signature: string,
-};
-
 // EthereumGetPublicKey
 export type EthereumGetPublicKey = {
     address_n: number[],
     show_display?: boolean,
 };
 
+export const Enum_BackupType = Object.freeze({
+    Bip39: 0,
+    Slip39_Basic: 1,
+    Slip39_Advanced: 2,
+});
+export type BackupType = $Keys<typeof Enum_BackupType>;
+
+export const Enum_SafetyCheckLevel = Object.freeze({
+    Strict: 0,
+    PromptAlways: 1,
+    PromptTemporarily: 2,
+});
+export type SafetyCheckLevel = $Keys<typeof Enum_SafetyCheckLevel>;
+
+export const Enum_Capability = Object.freeze({
+    Capability_Bitcoin: 1,
+    Capability_Bitcoin_like: 2,
+    Capability_Binance: 3,
+    Capability_Cardano: 4,
+    Capability_Crypto: 5,
+    Capability_EOS: 6,
+    Capability_Ethereum: 7,
+    Capability_Lisk: 8,
+    Capability_Monero: 9,
+    Capability_NEM: 10,
+    Capability_Ripple: 11,
+    Capability_Stellar: 12,
+    Capability_Tezos: 13,
+    Capability_U2F: 14,
+    Capability_Shamir: 15,
+    Capability_ShamirGroups: 16,
+    Capability_PassphraseEntry: 17,
+});
+export type Capability = $Keys<typeof Enum_Capability>;
+
+export const Enum_SdProtectOperationType = Object.freeze({
+    DISABLE: 0,
+    ENABLE: 1,
+    REFRESH: 2,
+});
+export type SdProtectOperationType = $Values<typeof Enum_SdProtectOperationType>;
+
+export const Enum_RecoveryDeviceType = Object.freeze({
+    RecoveryDeviceType_ScrambledWords: 0,
+    RecoveryDeviceType_Matrix: 1,
+});
+export type RecoveryDeviceType = $Values<typeof Enum_RecoveryDeviceType>;
+
+export const Enum_WordRequestType = Object.freeze({
+    WordRequestType_Plain: 0,
+    WordRequestType_Matrix9: 1,
+    WordRequestType_Matrix6: 2,
+});
+export type WordRequestType = $Keys<typeof Enum_WordRequestType>;
+
+export const Enum_NEMSupplyChangeType = Object.freeze({
+    SupplyChange_Increase: 1,
+    SupplyChange_Decrease: 2,
+});
+export type NEMSupplyChangeType = $Values<typeof Enum_NEMSupplyChangeType>;
+
+export const Enum_NEMModificationType = Object.freeze({
+    CosignatoryModification_Add: 1,
+    CosignatoryModification_Delete: 2,
+});
+export type NEMModificationType = $Values<typeof Enum_NEMModificationType>;
+
+export const Enum_NEMImportanceTransferMode = Object.freeze({
+    ImportanceTransfer_Activate: 1,
+    ImportanceTransfer_Deactivate: 2,
+});
+export type NEMImportanceTransferMode = $Values<typeof Enum_NEMImportanceTransferMode>;
+
+export const Enum_StellarAssetType = Object.freeze({
+    NATIVE: 0,
+    ALPHANUM4: 1,
+    ALPHANUM12: 2,
+});
+export type StellarAssetType = $Values<typeof Enum_StellarAssetType>;
+
+export const Enum_StellarMemoType = Object.freeze({
+    NONE: 0,
+    TEXT: 1,
+    ID: 2,
+    HASH: 3,
+    RETURN: 4,
+});
+export type StellarMemoType = $Values<typeof Enum_StellarMemoType>;
+
+export const Enum_StellarSignerType = Object.freeze({
+    ACCOUNT: 0,
+    PRE_AUTH: 1,
+    HASH: 2,
+});
+export type StellarSignerType = $Values<typeof Enum_StellarSignerType>;
+
+export const Enum_TezosContractType = Object.freeze({
+    Implicit: 0,
+    Originated: 1,
+});
+export type TezosContractType = $Values<typeof Enum_TezosContractType>;
+
+export const Enum_TezosBallotType = Object.freeze({
+    Yay: 0,
+    Nay: 1,
+    Pass: 2,
+});
+export type TezosBallotType = $Values<typeof Enum_TezosBallotType>;
+
+// DebugLinkRecordScreen
+export type DebugLinkRecordScreen = {
+    target_directory?: string,
+};
+
+// DebugLinkState
+export type DebugLinkState = {
+    layout?: string,
+    pin?: string,
+    matrix?: string,
+    mnemonic_secret?: string,
+    node?: HDNodeType,
+    passphrase_protection?: boolean,
+    reset_word?: string,
+    reset_entropy?: string,
+    recovery_fake_word?: string,
+    recovery_word_pos?: number,
+    reset_word_pos?: number,
+    mnemonic_type?: BackupType,
+    layout_lines: string[],
+};
+
+// DebugLinkLog
+export type DebugLinkLog = {
+    level?: number,
+    bucket?: string,
+    text?: string,
+};
+
+// DebugLinkMemory
+export type DebugLinkMemory = {
+    memory?: string,
+};
+
+// DebugLinkFlashErase
+export type DebugLinkFlashErase = {
+    sector?: number,
+};
+
+// DebugLinkWatchLayout
+export type DebugLinkWatchLayout = {
+    watch?: boolean,
+};
+
+// EosPublicKey
+export type EosPublicKey = {
+    wif_public_key: string,
+    raw_public_key: string,
+};
+
+// EosSignTx
+export type EosSignTx = {
+    address_n: number[],
+    chain_id?: string,
+    header?: EosTxHeader,
+    num_actions?: number,
+};
+
+// EosSignedTx
+export type EosSignedTx = {
+    signature: string,
+};
+
 // EthereumPublicKey
 export type EthereumPublicKey = {
     node: HDNodeType,
     xpub: string,
+};
+
+export const Enum_NEMMosaicLevy = Object.freeze({
+    MosaicLevy_Absolute: 1,
+    MosaicLevy_Percentile: 2,
+});
+export type NEMMosaicLevy = $Values<typeof Enum_NEMMosaicLevy>;
+
+export type NEMMosaicDefinition = {
+    name?: string,
+    ticker?: string,
+    namespace?: string,
+    mosaic?: string,
+    divisibility?: number,
+    levy?: NEMMosaicLevy,
+    fee?: number,
+    levy_address?: string,
+    levy_namespace?: string,
+    levy_mosaic?: string,
+    supply?: number,
+    mutable_supply?: boolean,
+    transferable?: boolean,
+    description?: string,
+    networks?: number[],
+};
+
+export type NEMMosaicCreation = {
+    definition?: NEMMosaicDefinition,
+    sink?: string,
+    fee?: number,
+};
+
+export type NEMMosaicSupplyChange = {
+    namespace?: string,
+    mosaic?: string,
+    type?: NEMSupplyChangeType,
+    delta?: number,
+};
+
+export type NEMCosignatoryModification = {
+    type?: NEMModificationType,
+    public_key?: string,
+};
+
+export type NEMAggregateModification = {
+    modifications?: NEMCosignatoryModification[],
+    relative_change?: number,
+};
+
+export type NEMImportanceTransfer = {
+    mode?: NEMImportanceTransferMode,
+    public_key?: string,
+};
+
+export type NEMTransactionCommon = {
+    address_n?: number[],
+    network?: number,
+    timestamp?: number,
+    fee?: number,
+    deadline?: number,
+    signer?: string,
+};
+
+export type NEMMosaic = {
+    namespace?: string,
+    mosaic?: string,
+    quantity?: number,
+};
+
+export type NEMTransfer = {
+    recipient?: string,
+    amount?: string | number,
+    payload?: string,
+    public_key?: string,
+    mosaics?: NEMMosaic[],
+};
+
+export type NEMProvisionNamespace = {
+    namespace?: string,
+    parent?: string,
+    sink?: string,
+    fee?: number,
+};
+
+// NEMSignTx
+export type NEMSignTx = {
+    transaction?: NEMTransactionCommon,
+    multisig?: NEMTransactionCommon,
+    transfer?: NEMTransfer,
+    cosigning?: boolean,
+    provision_namespace?: NEMProvisionNamespace,
+    mosaic_creation?: NEMMosaicCreation,
+    supply_change?: NEMMosaicSupplyChange,
+    aggregate_modification?: NEMAggregateModification,
+    importance_transfer?: NEMImportanceTransfer,
+};
+
+// NEMSignedTx
+export type NEMSignedTx = {
+    data: string,
+    signature: string,
+};
+
+// NEMDecryptMessage
+export type NEMDecryptMessage = {
+    address_n: number[],
+    network?: number,
+    public_key?: string,
+    payload?: string,
+};
+
+// NEMDecryptedMessage
+export type NEMDecryptedMessage = {
+    payload: string,
+};
+
+// RippleGetAddress
+export type RippleGetAddress = {
+    address_n: number[],
+    show_display?: boolean,
+};
+
+// RippleAddress
+export type RippleAddress = {
+    address: string,
+};
+
+export type RipplePayment = {
+    amount: string | number,
+    destination: string,
+    destination_tag?: number,
+};
+
+// RippleSignTx
+export type RippleSignTx = {
+    address_n: number[],
+    fee?: string | number,
+    flags?: number,
+    sequence?: number,
+    last_ledger_sequence?: number,
+    payment?: RipplePayment,
+};
+
+// RippleSignedTx
+export type RippleSignedTx = {
+    signature: string,
+    serialized_tx: string,
+};
+
+// StellarAsset
+export type StellarAsset = {
+    type: StellarAssetType,
+    code?: string,
+    issuer?: string,
+};
+
+// StellarGetAddress
+export type StellarGetAddress = {
+    address_n: number[],
+    show_display?: boolean,
+};
+
+// StellarAddress
+export type StellarAddress = {
+    address: string,
+};
+
+// StellarSignTx
+export type StellarSignTx = {
+    address_n: number[],
+    network_passphrase: string,
+    source_account: string,
+    fee: number,
+    sequence_number: string | number,
+    timebounds_start: number,
+    timebounds_end: number,
+    memo_type: StellarMemoType,
+    memo_text?: string,
+    memo_id?: string,
+    memo_hash?: Buffer | string,
+    num_operations: number,
+};
+
+// StellarTxOpRequest
+export type StellarTxOpRequest = {};
+
+// StellarPaymentOp
+export type StellarPaymentOp = {
+    source_account?: string,
+    destination_account: string,
+    asset: StellarAsset,
+    amount: string | number,
+};
+
+// StellarCreateAccountOp
+export type StellarCreateAccountOp = {
+    source_account?: string,
+    new_account: string,
+    starting_balance: string | number,
+};
+
+// StellarPathPaymentOp
+export type StellarPathPaymentOp = {
+    source_account?: string,
+    send_asset: StellarAsset,
+    send_max: string | number,
+    destination_account: string,
+    destination_asset: StellarAsset,
+    destination_amount: string | number,
+    paths?: StellarAsset[],
+};
+
+// StellarManageOfferOp
+export type StellarManageOfferOp = {
+    source_account?: string,
+    selling_asset: StellarAsset,
+    buying_asset: StellarAsset,
+    amount: string | number,
+    price_n: number,
+    price_d: number,
+    offer_id: string | number,
+};
+
+// StellarCreatePassiveOfferOp
+export type StellarCreatePassiveOfferOp = {
+    source_account?: string,
+    selling_asset: StellarAsset,
+    buying_asset: StellarAsset,
+    amount: string | number,
+    price_n: number,
+    price_d: number,
+};
+
+// StellarSetOptionsOp
+export type StellarSetOptionsOp = {
+    source_account?: string,
+    inflation_destination_account?: string,
+    clear_flags?: number,
+    set_flags?: number,
+    master_weight?: string | number,
+    low_threshold?: string | number,
+    medium_threshold?: string | number,
+    high_threshold?: string | number,
+    home_domain?: string,
+    signer_type?: StellarSignerType,
+    signer_key?: Buffer | string,
+    signer_weight?: number,
+};
+
+// StellarChangeTrustOp
+export type StellarChangeTrustOp = {
+    source_account?: string,
+    asset: StellarAsset,
+    limit: string | number,
+};
+
+// StellarAllowTrustOp
+export type StellarAllowTrustOp = {
+    source_account?: string,
+    trusted_account: string,
+    asset_type: StellarAssetType,
+    asset_code?: string,
+    is_authorized: boolean,
+};
+
+// StellarAccountMergeOp
+export type StellarAccountMergeOp = {
+    source_account?: string,
+    destination_account: string,
+};
+
+// StellarManageDataOp
+export type StellarManageDataOp = {
+    source_account?: string,
+    key: string,
+    value?: Buffer | string,
+};
+
+// StellarBumpSequenceOp
+export type StellarBumpSequenceOp = {
+    source_account?: string,
+    bump_to: string | number,
+};
+
+// StellarSignedTx
+export type StellarSignedTx = {
+    public_key: string,
+    signature: string,
+};
+
+// TezosGetAddress
+export type TezosGetAddress = {
+    address_n: number[],
+    show_display?: boolean,
+};
+
+// TezosAddress
+export type TezosAddress = {
+    address: string,
+};
+
+// TezosGetPublicKey
+export type TezosGetPublicKey = {
+    address_n: number[],
+    show_display?: boolean,
+};
+
+// TezosPublicKey
+export type TezosPublicKey = {
+    public_key: string,
+};
+
+export type TezosContractID = {
+    tag: number,
+    hash: Uint8Array,
+};
+
+export type TezosRevealOp = {
+    source: Uint8Array,
+    fee: number,
+    counter: number,
+    gas_limit: number,
+    storage_limit: number,
+    public_key: Uint8Array,
+};
+
+export type TezosManagerTransfer = {
+    destination?: TezosContractID,
+    amount?: number,
+};
+
+export type TezosParametersManager = {
+    set_delegate?: Uint8Array,
+    cancel_delegate?: boolean,
+    transfer?: TezosManagerTransfer,
+};
+
+export type TezosTransactionOp = {
+    source: Uint8Array,
+    fee: number,
+    counter: number,
+    gas_limit: number,
+    storage_limit: number,
+    amount: number,
+    destination: TezosContractID,
+    parameters?: number[],
+    parameters_manager?: TezosParametersManager,
+};
+
+export type TezosOriginationOp = {
+    source: Uint8Array,
+    fee: number,
+    counter: number,
+    gas_limit: number,
+    storage_limit: number,
+    manager_pubkey?: string,
+    balance: number,
+    spendable?: boolean,
+    delegatable?: boolean,
+    delegate?: Uint8Array,
+    script: string | number[],
+};
+
+export type TezosDelegationOp = {
+    source: Uint8Array,
+    fee: number,
+    counter: number,
+    gas_limit: number,
+    storage_limit: number,
+    delegate: Uint8Array,
+};
+
+export type TezosProposalOp = {
+    source?: string,
+    period?: number,
+    proposals: string[],
+};
+
+export type TezosBallotOp = {
+    source?: string,
+    period?: number,
+    proposal?: string,
+    ballot?: TezosBallotType,
+};
+
+// TezosSignTx
+export type TezosSignTx = {
+    address_n: number[],
+    branch: Uint8Array,
+    reveal?: TezosRevealOp,
+    transaction?: TezosTransactionOp,
+    origination?: TezosOriginationOp,
+    delegation?: TezosDelegationOp,
+    proposal?: TezosProposalOp,
+    ballot?: TezosBallotOp,
+};
+
+// TezosSignedTx
+export type TezosSignedTx = {
+    signature: string,
+    sig_op_contents: string,
+    operation_hash: string,
 };
 
 // EthereumGetAddress
@@ -1449,27 +1943,6 @@ export type Initialize = {
 // GetFeatures
 export type GetFeatures = {};
 
-export const Enum_Capability = Object.freeze({
-    Capability_Bitcoin: 1,
-    Capability_Bitcoin_like: 2,
-    Capability_Binance: 3,
-    Capability_Cardano: 4,
-    Capability_Crypto: 5,
-    Capability_EOS: 6,
-    Capability_Ethereum: 7,
-    Capability_Lisk: 8,
-    Capability_Monero: 9,
-    Capability_NEM: 10,
-    Capability_Ripple: 11,
-    Capability_Stellar: 12,
-    Capability_Tezos: 13,
-    Capability_U2F: 14,
-    Capability_Shamir: 15,
-    Capability_ShamirGroups: 16,
-    Capability_PassphraseEntry: 17,
-});
-export type Capability = $Keys<typeof Enum_Capability>;
-
 // Features
 export type Features = {
     vendor: string,
@@ -1546,13 +2019,6 @@ export type ChangeWipeCode = {
     remove?: boolean,
 };
 
-export const Enum_SdProtectOperationType = Object.freeze({
-    DISABLE: 0,
-    ENABLE: 1,
-    REFRESH: 2,
-});
-export type SdProtectOperationType = $Values<typeof Enum_SdProtectOperationType>;
-
 // SdProtect
 export type SdProtect = {
     operation: SdProtectOperationType,
@@ -1618,12 +2084,6 @@ export type EntropyAck = {
     entropy: string,
 };
 
-export const Enum_RecoveryDeviceType = Object.freeze({
-    RecoveryDeviceType_ScrambledWords: 0,
-    RecoveryDeviceType_Matrix: 1,
-});
-export type RecoveryDeviceType = $Values<typeof Enum_RecoveryDeviceType>;
-
 // RecoveryDevice
 export type RecoveryDevice = {
     word_count?: number,
@@ -1636,13 +2096,6 @@ export type RecoveryDevice = {
     u2f_counter?: number,
     dry_run?: boolean,
 };
-
-export const Enum_WordRequestType = Object.freeze({
-    WordRequestType_Plain: 0,
-    WordRequestType_Matrix9: 1,
-    WordRequestType_Matrix6: 2,
-});
-export type WordRequestType = $Keys<typeof Enum_WordRequestType>;
 
 // WordRequest
 export type WordRequest = {
@@ -1689,455 +2142,6 @@ export type NEMGetAddress = {
 // NEMAddress
 export type NEMAddress = {
     address: string,
-};
-
-export type NEMTransactionCommon = {
-    address_n?: number[],
-    network?: number,
-    timestamp?: number,
-    fee?: number,
-    deadline?: number,
-    signer?: string,
-};
-
-export type NEMMosaic = {
-    namespace?: string,
-    mosaic?: string,
-    quantity?: number,
-};
-
-export type NEMTransfer = {
-    recipient?: string,
-    amount?: string | number,
-    payload?: string,
-    public_key?: string,
-    mosaics?: NEMMosaic[],
-};
-
-export type NEMProvisionNamespace = {
-    namespace?: string,
-    parent?: string,
-    sink?: string,
-    fee?: number,
-};
-
-export const Enum_NEMMosaicLevy = Object.freeze({
-    MosaicLevy_Absolute: 1,
-    MosaicLevy_Percentile: 2,
-});
-export type NEMMosaicLevy = $Values<typeof Enum_NEMMosaicLevy>;
-
-export type NEMMosaicDefinition = {
-    name?: string,
-    ticker?: string,
-    namespace?: string,
-    mosaic?: string,
-    divisibility?: number,
-    levy?: NEMMosaicLevy,
-    fee?: number,
-    levy_address?: string,
-    levy_namespace?: string,
-    levy_mosaic?: string,
-    supply?: number,
-    mutable_supply?: boolean,
-    transferable?: boolean,
-    description?: string,
-    networks?: number[],
-};
-
-export type NEMMosaicCreation = {
-    definition?: NEMMosaicDefinition,
-    sink?: string,
-    fee?: number,
-};
-
-export const Enum_NEMSupplyChangeType = Object.freeze({
-    SupplyChange_Increase: 1,
-    SupplyChange_Decrease: 2,
-});
-export type NEMSupplyChangeType = $Values<typeof Enum_NEMSupplyChangeType>;
-
-export type NEMMosaicSupplyChange = {
-    namespace?: string,
-    mosaic?: string,
-    type?: NEMSupplyChangeType,
-    delta?: number,
-};
-
-export const Enum_NEMModificationType = Object.freeze({
-    CosignatoryModification_Add: 1,
-    CosignatoryModification_Delete: 2,
-});
-export type NEMModificationType = $Values<typeof Enum_NEMModificationType>;
-
-export type NEMCosignatoryModification = {
-    type?: NEMModificationType,
-    public_key?: string,
-};
-
-export type NEMAggregateModification = {
-    modifications?: NEMCosignatoryModification[],
-    relative_change?: number,
-};
-
-export const Enum_NEMImportanceTransferMode = Object.freeze({
-    ImportanceTransfer_Activate: 1,
-    ImportanceTransfer_Deactivate: 2,
-});
-export type NEMImportanceTransferMode = $Values<typeof Enum_NEMImportanceTransferMode>;
-
-export type NEMImportanceTransfer = {
-    mode?: NEMImportanceTransferMode,
-    public_key?: string,
-};
-
-// NEMSignTx
-export type NEMSignTx = {
-    transaction?: NEMTransactionCommon,
-    multisig?: NEMTransactionCommon,
-    transfer?: NEMTransfer,
-    cosigning?: boolean,
-    provision_namespace?: NEMProvisionNamespace,
-    mosaic_creation?: NEMMosaicCreation,
-    supply_change?: NEMMosaicSupplyChange,
-    aggregate_modification?: NEMAggregateModification,
-    importance_transfer?: NEMImportanceTransfer,
-};
-
-// NEMSignedTx
-export type NEMSignedTx = {
-    data: string,
-    signature: string,
-};
-
-// NEMDecryptMessage
-export type NEMDecryptMessage = {
-    address_n: number[],
-    network?: number,
-    public_key?: string,
-    payload?: string,
-};
-
-// NEMDecryptedMessage
-export type NEMDecryptedMessage = {
-    payload: string,
-};
-
-// RippleGetAddress
-export type RippleGetAddress = {
-    address_n: number[],
-    show_display?: boolean,
-};
-
-// RippleAddress
-export type RippleAddress = {
-    address: string,
-};
-
-export type RipplePayment = {
-    amount: string | number,
-    destination: string,
-    destination_tag?: number,
-};
-
-// RippleSignTx
-export type RippleSignTx = {
-    address_n: number[],
-    fee?: string | number,
-    flags?: number,
-    sequence?: number,
-    last_ledger_sequence?: number,
-    payment?: RipplePayment,
-};
-
-// RippleSignedTx
-export type RippleSignedTx = {
-    signature: string,
-    serialized_tx: string,
-};
-
-// StellarAsset
-export type StellarAsset = {
-    type: StellarAssetType,
-    code?: string,
-    issuer?: string,
-};
-
-// StellarGetAddress
-export type StellarGetAddress = {
-    address_n: number[],
-    show_display?: boolean,
-};
-
-// StellarAddress
-export type StellarAddress = {
-    address: string,
-};
-
-export const Enum_StellarMemoType = Object.freeze({
-    NONE: 0,
-    TEXT: 1,
-    ID: 2,
-    HASH: 3,
-    RETURN: 4,
-});
-export type StellarMemoType = $Values<typeof Enum_StellarMemoType>;
-
-// StellarSignTx
-export type StellarSignTx = {
-    address_n: number[],
-    network_passphrase: string,
-    source_account: string,
-    fee: number,
-    sequence_number: string | number,
-    timebounds_start: number,
-    timebounds_end: number,
-    memo_type: StellarMemoType,
-    memo_text?: string,
-    memo_id?: string,
-    memo_hash?: Buffer | string,
-    num_operations: number,
-};
-
-// StellarTxOpRequest
-export type StellarTxOpRequest = {};
-
-// StellarPaymentOp
-export type StellarPaymentOp = {
-    source_account?: string,
-    destination_account: string,
-    asset: StellarAsset,
-    amount: string | number,
-};
-
-// StellarCreateAccountOp
-export type StellarCreateAccountOp = {
-    source_account?: string,
-    new_account: string,
-    starting_balance: string | number,
-};
-
-// StellarPathPaymentOp
-export type StellarPathPaymentOp = {
-    source_account?: string,
-    send_asset: StellarAsset,
-    send_max: string | number,
-    destination_account: string,
-    destination_asset: StellarAsset,
-    destination_amount: string | number,
-    paths?: StellarAsset[],
-};
-
-// StellarManageOfferOp
-export type StellarManageOfferOp = {
-    source_account?: string,
-    selling_asset: StellarAsset,
-    buying_asset: StellarAsset,
-    amount: string | number,
-    price_n: number,
-    price_d: number,
-    offer_id: string | number,
-};
-
-// StellarCreatePassiveOfferOp
-export type StellarCreatePassiveOfferOp = {
-    source_account?: string,
-    selling_asset: StellarAsset,
-    buying_asset: StellarAsset,
-    amount: string | number,
-    price_n: number,
-    price_d: number,
-};
-
-export const Enum_StellarSignerType = Object.freeze({
-    ACCOUNT: 0,
-    PRE_AUTH: 1,
-    HASH: 2,
-});
-export type StellarSignerType = $Values<typeof Enum_StellarSignerType>;
-
-// StellarSetOptionsOp
-export type StellarSetOptionsOp = {
-    source_account?: string,
-    inflation_destination_account?: string,
-    clear_flags?: number,
-    set_flags?: number,
-    master_weight?: string | number,
-    low_threshold?: string | number,
-    medium_threshold?: string | number,
-    high_threshold?: string | number,
-    home_domain?: string,
-    signer_type?: StellarSignerType,
-    signer_key?: Buffer | string,
-    signer_weight?: number,
-};
-
-// StellarChangeTrustOp
-export type StellarChangeTrustOp = {
-    source_account?: string,
-    asset: StellarAsset,
-    limit: string | number,
-};
-
-// StellarAllowTrustOp
-export type StellarAllowTrustOp = {
-    source_account?: string,
-    trusted_account: string,
-    asset_type: StellarAssetType,
-    asset_code?: string,
-    is_authorized: boolean,
-};
-
-// StellarAccountMergeOp
-export type StellarAccountMergeOp = {
-    source_account?: string,
-    destination_account: string,
-};
-
-// StellarManageDataOp
-export type StellarManageDataOp = {
-    source_account?: string,
-    key: string,
-    value?: Buffer | string,
-};
-
-// StellarBumpSequenceOp
-export type StellarBumpSequenceOp = {
-    source_account?: string,
-    bump_to: string | number,
-};
-
-// StellarSignedTx
-export type StellarSignedTx = {
-    public_key: string,
-    signature: string,
-};
-
-// TezosGetAddress
-export type TezosGetAddress = {
-    address_n: number[],
-    show_display?: boolean,
-};
-
-// TezosAddress
-export type TezosAddress = {
-    address: string,
-};
-
-// TezosGetPublicKey
-export type TezosGetPublicKey = {
-    address_n: number[],
-    show_display?: boolean,
-};
-
-// TezosPublicKey
-export type TezosPublicKey = {
-    public_key: string,
-};
-
-export const Enum_TezosContractType = Object.freeze({
-    Implicit: 0,
-    Originated: 1,
-});
-export type TezosContractType = $Values<typeof Enum_TezosContractType>;
-
-export type TezosContractID = {
-    tag: number,
-    hash: Uint8Array,
-};
-
-export type TezosRevealOp = {
-    source: Uint8Array,
-    fee: number,
-    counter: number,
-    gas_limit: number,
-    storage_limit: number,
-    public_key: Uint8Array,
-};
-
-export type TezosManagerTransfer = {
-    destination?: TezosContractID,
-    amount?: number,
-};
-
-export type TezosParametersManager = {
-    set_delegate?: Uint8Array,
-    cancel_delegate?: boolean,
-    transfer?: TezosManagerTransfer,
-};
-
-export type TezosTransactionOp = {
-    source: Uint8Array,
-    fee: number,
-    counter: number,
-    gas_limit: number,
-    storage_limit: number,
-    amount: number,
-    destination: TezosContractID,
-    parameters?: number[],
-    parameters_manager?: TezosParametersManager,
-};
-
-export type TezosOriginationOp = {
-    source: Uint8Array,
-    fee: number,
-    counter: number,
-    gas_limit: number,
-    storage_limit: number,
-    manager_pubkey?: string,
-    balance: number,
-    spendable?: boolean,
-    delegatable?: boolean,
-    delegate?: Uint8Array,
-    script: string | number[],
-};
-
-export type TezosDelegationOp = {
-    source: Uint8Array,
-    fee: number,
-    counter: number,
-    gas_limit: number,
-    storage_limit: number,
-    delegate: Uint8Array,
-};
-
-export type TezosProposalOp = {
-    source?: string,
-    period?: number,
-    proposals: string[],
-};
-
-export const Enum_TezosBallotType = Object.freeze({
-    Yay: 0,
-    Nay: 1,
-    Pass: 2,
-});
-export type TezosBallotType = $Values<typeof Enum_TezosBallotType>;
-
-export type TezosBallotOp = {
-    source?: string,
-    period?: number,
-    proposal?: string,
-    ballot?: TezosBallotType,
-};
-
-// TezosSignTx
-export type TezosSignTx = {
-    address_n: number[],
-    branch: Uint8Array,
-    reveal?: TezosRevealOp,
-    transaction?: TezosTransactionOp,
-    origination?: TezosOriginationOp,
-    delegation?: TezosDelegationOp,
-    proposal?: TezosProposalOp,
-    ballot?: TezosBallotOp,
-};
-
-// TezosSignedTx
-export type TezosSignedTx = {
-    signature: string,
-    sig_op_contents: string,
-    operation_hash: string,
 };
 
 // custom connect definitions
@@ -2260,47 +2264,98 @@ export type MessageType = {
     DebugLinkDecision: DebugLinkDecision,
     DebugLinkLayout: DebugLinkLayout,
     DebugLinkReseedRandom: DebugLinkReseedRandom,
-    DebugLinkRecordScreen: DebugLinkRecordScreen,
     DebugLinkGetState: DebugLinkGetState,
-    DebugLinkState: DebugLinkState,
     DebugLinkStop: DebugLinkStop,
-    DebugLinkLog: DebugLinkLog,
     DebugLinkMemoryRead: DebugLinkMemoryRead,
-    DebugLinkMemory: DebugLinkMemory,
     DebugLinkMemoryWrite: DebugLinkMemoryWrite,
-    DebugLinkFlashErase: DebugLinkFlashErase,
     DebugLinkEraseSdCard: DebugLinkEraseSdCard,
-    DebugLinkWatchLayout: DebugLinkWatchLayout,
     EosGetPublicKey: EosGetPublicKey,
-    EosPublicKey: $Exact<EosPublicKey>,
     EosTxHeader: $Exact<EosTxHeader>,
-    EosSignTx: EosSignTx,
     EosTxActionRequest: EosTxActionRequest,
-    EosAsset: EosAsset,
     EosPermissionLevel: EosPermissionLevel,
-    EosAuthorizationKey: $Exact<EosAuthorizationKey>,
     EosAuthorizationAccount: EosAuthorizationAccount,
     EosAuthorizationWait: EosAuthorizationWait,
-    EosAuthorization: EosAuthorization,
-    EosActionCommon: EosActionCommon,
+    EosAsset: EosAsset,
     EosActionTransfer: EosActionTransfer,
-    EosActionDelegate: EosActionDelegate,
     EosActionUndelegate: EosActionUndelegate,
+    EosActionSellRam: EosActionSellRam,
+    EosAuthorizationKey: $Exact<EosAuthorizationKey>,
+    EosAuthorization: EosAuthorization,
+    EosActionLinkAuth: EosActionLinkAuth,
+    EosActionNewAccount: EosActionNewAccount,
+    EosActionCommon: EosActionCommon,
+    EosActionDelegate: EosActionDelegate,
     EosActionRefund: EosActionRefund,
     EosActionBuyRam: EosActionBuyRam,
     EosActionBuyRamBytes: EosActionBuyRamBytes,
-    EosActionSellRam: EosActionSellRam,
     EosActionVoteProducer: EosActionVoteProducer,
     EosActionUpdateAuth: EosActionUpdateAuth,
     EosActionDeleteAuth: EosActionDeleteAuth,
-    EosActionLinkAuth: EosActionLinkAuth,
     EosActionUnlinkAuth: EosActionUnlinkAuth,
-    EosActionNewAccount: EosActionNewAccount,
     EosActionUnknown: $Exact<EosActionUnknown>,
     EosTxActionAck: EosTxActionAck,
-    EosSignedTx: $Exact<EosSignedTx>,
     EthereumGetPublicKey: EthereumGetPublicKey,
+    DebugLinkRecordScreen: DebugLinkRecordScreen,
+    DebugLinkState: DebugLinkState,
+    DebugLinkLog: DebugLinkLog,
+    DebugLinkMemory: DebugLinkMemory,
+    DebugLinkFlashErase: DebugLinkFlashErase,
+    DebugLinkWatchLayout: DebugLinkWatchLayout,
+    EosPublicKey: $Exact<EosPublicKey>,
+    EosSignTx: EosSignTx,
+    EosSignedTx: $Exact<EosSignedTx>,
     EthereumPublicKey: $Exact<EthereumPublicKey>,
+    NEMMosaicDefinition: NEMMosaicDefinition,
+    NEMMosaicCreation: NEMMosaicCreation,
+    NEMMosaicSupplyChange: NEMMosaicSupplyChange,
+    NEMCosignatoryModification: NEMCosignatoryModification,
+    NEMAggregateModification: NEMAggregateModification,
+    NEMImportanceTransfer: NEMImportanceTransfer,
+    NEMTransactionCommon: NEMTransactionCommon,
+    NEMMosaic: NEMMosaic,
+    NEMTransfer: NEMTransfer,
+    NEMProvisionNamespace: NEMProvisionNamespace,
+    NEMSignTx: NEMSignTx,
+    NEMSignedTx: $Exact<NEMSignedTx>,
+    NEMDecryptMessage: NEMDecryptMessage,
+    NEMDecryptedMessage: $Exact<NEMDecryptedMessage>,
+    RippleGetAddress: RippleGetAddress,
+    RippleAddress: $Exact<RippleAddress>,
+    RipplePayment: $Exact<RipplePayment>,
+    RippleSignTx: RippleSignTx,
+    RippleSignedTx: $Exact<RippleSignedTx>,
+    StellarAsset: $Exact<StellarAsset>,
+    StellarGetAddress: StellarGetAddress,
+    StellarAddress: $Exact<StellarAddress>,
+    StellarSignTx: $Exact<StellarSignTx>,
+    StellarTxOpRequest: StellarTxOpRequest,
+    StellarPaymentOp: $Exact<StellarPaymentOp>,
+    StellarCreateAccountOp: $Exact<StellarCreateAccountOp>,
+    StellarPathPaymentOp: $Exact<StellarPathPaymentOp>,
+    StellarManageOfferOp: $Exact<StellarManageOfferOp>,
+    StellarCreatePassiveOfferOp: $Exact<StellarCreatePassiveOfferOp>,
+    StellarSetOptionsOp: StellarSetOptionsOp,
+    StellarChangeTrustOp: $Exact<StellarChangeTrustOp>,
+    StellarAllowTrustOp: $Exact<StellarAllowTrustOp>,
+    StellarAccountMergeOp: $Exact<StellarAccountMergeOp>,
+    StellarManageDataOp: $Exact<StellarManageDataOp>,
+    StellarBumpSequenceOp: $Exact<StellarBumpSequenceOp>,
+    StellarSignedTx: $Exact<StellarSignedTx>,
+    TezosGetAddress: TezosGetAddress,
+    TezosAddress: $Exact<TezosAddress>,
+    TezosGetPublicKey: TezosGetPublicKey,
+    TezosPublicKey: $Exact<TezosPublicKey>,
+    TezosContractID: $Exact<TezosContractID>,
+    TezosRevealOp: $Exact<TezosRevealOp>,
+    TezosManagerTransfer: TezosManagerTransfer,
+    TezosParametersManager: TezosParametersManager,
+    TezosTransactionOp: $Exact<TezosTransactionOp>,
+    TezosOriginationOp: $Exact<TezosOriginationOp>,
+    TezosDelegationOp: $Exact<TezosDelegationOp>,
+    TezosProposalOp: TezosProposalOp,
+    TezosBallotOp: TezosBallotOp,
+    TezosSignTx: $Exact<TezosSignTx>,
+    TezosSignedTx: $Exact<TezosSignedTx>,
     EthereumGetAddress: EthereumGetAddress,
     EthereumAddress: EthereumAddress,
     EthereumSignTx: $Exact<EthereumSignTx>,
@@ -2343,57 +2398,6 @@ export type MessageType = {
     RebootToBootloader: RebootToBootloader,
     NEMGetAddress: NEMGetAddress,
     NEMAddress: $Exact<NEMAddress>,
-    NEMTransactionCommon: NEMTransactionCommon,
-    NEMMosaic: NEMMosaic,
-    NEMTransfer: NEMTransfer,
-    NEMProvisionNamespace: NEMProvisionNamespace,
-    NEMMosaicDefinition: NEMMosaicDefinition,
-    NEMMosaicCreation: NEMMosaicCreation,
-    NEMMosaicSupplyChange: NEMMosaicSupplyChange,
-    NEMCosignatoryModification: NEMCosignatoryModification,
-    NEMAggregateModification: NEMAggregateModification,
-    NEMImportanceTransfer: NEMImportanceTransfer,
-    NEMSignTx: NEMSignTx,
-    NEMSignedTx: $Exact<NEMSignedTx>,
-    NEMDecryptMessage: NEMDecryptMessage,
-    NEMDecryptedMessage: $Exact<NEMDecryptedMessage>,
-    RippleGetAddress: RippleGetAddress,
-    RippleAddress: $Exact<RippleAddress>,
-    RipplePayment: $Exact<RipplePayment>,
-    RippleSignTx: RippleSignTx,
-    RippleSignedTx: $Exact<RippleSignedTx>,
-    StellarAsset: $Exact<StellarAsset>,
-    StellarGetAddress: StellarGetAddress,
-    StellarAddress: $Exact<StellarAddress>,
-    StellarSignTx: $Exact<StellarSignTx>,
-    StellarTxOpRequest: StellarTxOpRequest,
-    StellarPaymentOp: $Exact<StellarPaymentOp>,
-    StellarCreateAccountOp: $Exact<StellarCreateAccountOp>,
-    StellarPathPaymentOp: $Exact<StellarPathPaymentOp>,
-    StellarManageOfferOp: $Exact<StellarManageOfferOp>,
-    StellarCreatePassiveOfferOp: $Exact<StellarCreatePassiveOfferOp>,
-    StellarSetOptionsOp: StellarSetOptionsOp,
-    StellarChangeTrustOp: $Exact<StellarChangeTrustOp>,
-    StellarAllowTrustOp: $Exact<StellarAllowTrustOp>,
-    StellarAccountMergeOp: $Exact<StellarAccountMergeOp>,
-    StellarManageDataOp: $Exact<StellarManageDataOp>,
-    StellarBumpSequenceOp: $Exact<StellarBumpSequenceOp>,
-    StellarSignedTx: $Exact<StellarSignedTx>,
-    TezosGetAddress: TezosGetAddress,
-    TezosAddress: $Exact<TezosAddress>,
-    TezosGetPublicKey: TezosGetPublicKey,
-    TezosPublicKey: $Exact<TezosPublicKey>,
-    TezosContractID: $Exact<TezosContractID>,
-    TezosRevealOp: $Exact<TezosRevealOp>,
-    TezosManagerTransfer: TezosManagerTransfer,
-    TezosParametersManager: TezosParametersManager,
-    TezosTransactionOp: $Exact<TezosTransactionOp>,
-    TezosOriginationOp: $Exact<TezosOriginationOp>,
-    TezosDelegationOp: $Exact<TezosDelegationOp>,
-    TezosProposalOp: TezosProposalOp,
-    TezosBallotOp: TezosBallotOp,
-    TezosSignTx: $Exact<TezosSignTx>,
-    TezosSignedTx: $Exact<TezosSignedTx>,
 };
 
 export type MessageKey = $Keys<MessageType>;
