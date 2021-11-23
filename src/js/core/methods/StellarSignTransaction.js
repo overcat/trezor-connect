@@ -6,12 +6,28 @@ import { getMiscNetwork } from '../../data/CoinInfo';
 import { validatePath } from '../../utils/pathUtils';
 import * as helper from './helpers/stellarSignTx';
 
-import type { CoreMessage } from '../../types';
+import type { CoreMessage, StellarTransaction } from '../../types';
+
+const StellarSupportOperations = Object.freeze({
+    StellarAccountMergeOp: ['1.10.4', '2.4.3'],
+    StellarAllowTrustOp: ['1.10.4', '2.4.3'],
+    StellarBumpSequenceOp: ['1.10.4', '2.4.3'],
+    StellarChangeTrustOp: ['1.10.4', '2.4.3'],
+    StellarCreateAccountOp: ['1.10.4', '2.4.3'],
+    StellarCreatePassiveSellOfferOp: ['1.10.4', '2.4.3'],
+    StellarManageDataOp: ['1.10.4', '2.4.3'],
+    StellarManageBuyOfferOp: ['1.10.4', '2.4.3'],
+    StellarManageSellOfferOp: ['1.10.4', '2.4.3'],
+    StellarPathPaymentStrictReceiveOp: ['1.10.4', '2.4.3'],
+    StellarPathPaymentStrictSendOp: ['1.10.4', '2.4.3'],
+    StellarPaymentOp: ['1.10.4', '2.4.3'],
+    StellarSetOptionsOp: ['1.10.4', '2.4.3'],
+});
 
 type Params = {
     path: number[],
     networkPassphrase: string,
-    transaction: any,
+    transaction: StellarTransaction,
 };
 
 export default class StellarSignTransaction extends AbstractMethod {
